@@ -65,13 +65,19 @@
 // }
 
 
+import AboutSection from '@/components/landing-page/AboutSection'
+import CallToAction from '@/components/landing-page/CallToAction'
+import Footer from '@/components/landing-page/Footer'
+import Hero from '@/components/landing-page/Hero'
+import Navbar from '@/components/landing-page/Navbar'
 import Link from 'next/link'
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-gray-50 text-gray-900">
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-8 py-6 max-w-6xl mx-auto">
+      <Navbar />
+      {/* <nav className="flex justify-between items-center px-8 py-6 max-w-6xl mx-auto">
         <h1 className="text-xl font-bold">LinkSaaS</h1>
 
         <div className="space-x-4">
@@ -89,10 +95,11 @@ export default function HomePage() {
             Get Started
           </Link>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hero */}
-      <section className="text-center px-6 py-20 max-w-4xl mx-auto">
+      <Hero />
+      {/* <section className="text-center px-6 py-20 max-w-4xl mx-auto">
         <h2 className="text-5xl font-bold leading-tight mb-6">
           Shorten Links.
           <br />
@@ -112,10 +119,11 @@ export default function HomePage() {
         >
           Create Free Account
         </Link>
-      </section>
+      </section> */}
 
       {/* Features */}
-      <section className="bg-white py-20">
+      <AboutSection />
+      {/* <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-8">
           
           <div className="p-6 rounded-xl shadow-sm border">
@@ -149,10 +157,11 @@ export default function HomePage() {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
-      <section className="py-20 text-center px-6">
+      <CallToAction />
+      {/* <section className="py-20 text-center px-6">
         <h3 className="text-3xl font-bold mb-6">
           Ready to build smarter links?
         </h3>
@@ -163,12 +172,13 @@ export default function HomePage() {
         >
           Start Free Today
         </Link>
-      </section>
+      </section> */}
 
       {/* Footer */}
-      <footer className="text-center py-8 text-sm text-gray-500">
+      <Footer />
+      {/* <footer className="text-center py-8 text-sm text-gray-500">
         © {new Date().getFullYear()} LinkSaaS. All rights reserved.
-      </footer>
+      </footer> */}
     </main>
   )
 }
