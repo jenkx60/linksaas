@@ -65,12 +65,16 @@
 // }
 
 
-import AboutSection from '@/components/landing-page/AboutSection'
+import dynamic from 'next/dynamic'
 import CallToAction from '@/components/landing-page/CallToAction'
 import Footer from '@/components/landing-page/Footer'
-import Hero from '@/components/landing-page/Hero'
 import Navbar from '@/components/landing-page/Navbar'
-import Link from 'next/link'
+
+// Heavy client components — loaded in parallel with the page shell via dynamic()
+const Hero = dynamic(() => import('@/components/landing-page/Hero'), {
+  loading: () => <div className="h-screen bg-[#0A0A0B]" />,
+})
+const AboutSection = dynamic(() => import('@/components/landing-page/AboutSection'))
 
 export default function HomePage() {
   return (

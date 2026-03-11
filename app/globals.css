@@ -45,7 +45,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -125,4 +125,61 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ── Hero background animations (CSS-driven, zero JS frames) ──────────── */
+@keyframes glow-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.3; }
+  50%       { transform: scale(1.2); opacity: 0.8; }
+}
+@keyframes glow-pulse-lg {
+  0%, 100% { transform: scale(1);   opacity: 0.2; }
+  50%       { transform: scale(1.5); opacity: 0.6; }
+}
+@keyframes glow-pulse-sm {
+  0%, 100% { transform: scale(1);   opacity: 0.4; }
+  50%       { transform: scale(1.3); opacity: 0.9; }
+}
+@keyframes draw-path {
+  0%   { stroke-dashoffset: 2000; opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { stroke-dashoffset: 0;    opacity: 0; }
+}
+@keyframes draw-path-2 {
+  0%   { stroke-dashoffset: 2000; opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { stroke-dashoffset: 0;    opacity: 0; }
+}
+.animate-glow-pulse     { animation: glow-pulse    3s ease-in-out infinite; }
+.animate-glow-pulse-lg  { animation: glow-pulse-lg 4s ease-in-out infinite 1s; }
+.animate-glow-pulse-sm  { animation: glow-pulse-sm 2.5s ease-in-out infinite 0.5s; }
+.animate-draw-path      {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: draw-path   3s ease-in-out infinite alternate;
+}
+.animate-draw-path-2    {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: draw-path-2 4s ease-in-out infinite alternate 1s;
+}
+
+/* ── Auth screen utilities (from Stitch) ──────────── */
+.glass-card-auth {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.auth-bg-pulse {
+  background: radial-gradient(circle at 50% 50%, rgba(20, 61, 184, 0.15) 0%, rgba(10, 10, 11, 1) 70%);
+}
+.auth-network-lines {
+  background-image: radial-gradient(circle at 2px 2px, rgba(13, 242, 242, 0.05) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+.auth-glow-input:focus {
+  box-shadow: 0 0 15px rgba(0, 194, 255, 0.1);
 }
